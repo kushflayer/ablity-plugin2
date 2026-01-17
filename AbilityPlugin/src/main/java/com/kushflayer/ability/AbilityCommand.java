@@ -15,13 +15,8 @@ public class AbilityCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player player)) {
-            sender.sendMessage("Only players can use this command!");
-            return true;
-        }
-
-        player.sendMessage("Ability command triggered! (Work in progress)");
+        if (!(sender instanceof Player player)) return true;
+        player.sendMessage("Ability command triggered");
         return true;
     }
 }
-
