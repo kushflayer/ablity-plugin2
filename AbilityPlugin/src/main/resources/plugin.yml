@@ -1,0 +1,7 @@
+name: AbilityPlugin
+version: 1.0
+main: com.kushflayer.ability.Main
+api-version: 1.21
+commands:
+  ability:
+    description: Use an ability
