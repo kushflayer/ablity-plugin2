@@ -1,0 +1,29 @@
+name: Build AbilityPlugin
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Setup Java 17
+        uses: actions/setup-java@5d4f7b7b8c7a9c5f1d3a9f5b4a6e3dcd0f8d9c6f
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build with Maven
+        run: mvn -B clean package
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@a8a3f3a21c8a1f92d75a8f9d0f0d7f6cbb5e4e17
+        with:
+          name: AbilityPlugin
+          path: target/*.jar
